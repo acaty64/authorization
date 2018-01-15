@@ -1,7 +1,18 @@
 <?php
 
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-		Route::get('/', 'dashboard@index')
-			->name('admin_dashboard');
+//use Symfony\Component\HttpFoundation\Response;
 
-		/// Route:: ....
+
+Route::get('/', 'dashboard@index')
+	->name('admin_dashboard');
+
+/// Route:: ....
+
+Route::any('{any}',function()
+{
+	throw new NotFoundHttpException("Página inválida");
+	
+	//return response()->view('errors/404', [], 404);
+})->where('any', '.*');
