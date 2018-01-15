@@ -21,9 +21,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin', function()
-{
+/*
+Route::group(
+	['middleware' => ['auth', 'admin'],
+		'prefix' => 'admin' ], function(){
+	
+		require __DIR__ . '/admin.php';
 
-	return view('/admin/dashboard');
-
-})->name('admin_dashboard')->middleware(['auth', 'admin']);
+	}
+);
+*/
