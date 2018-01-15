@@ -9,6 +9,8 @@ use Tests\TestCase;
 
 class DashboardTest extends TestCase
 {
+    use RefreshDatabase;
+    
     /** @test */
     public function it_show_the_dashboard_page_to_authenticated_users()
     {
